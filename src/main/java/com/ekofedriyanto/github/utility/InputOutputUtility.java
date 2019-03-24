@@ -26,12 +26,4 @@ public class InputOutputUtility {
 				.toArray();
 	}
 
-	public static String intArrayToString(int[] src, String delimiter ) {
-		delimiter = (!Objects.isNull(delimiter)) ? delimiter : "";
-
-		return  Arrays.stream(src)
-				.mapToObj(String::valueOf)
-				.collect(Collectors.joining(delimiter));
-	}
-
 }
