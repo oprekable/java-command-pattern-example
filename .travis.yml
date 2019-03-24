@@ -32,7 +32,7 @@ deploy:
   name: $TRAVIS_TAG
   overwrite: true
   skip_cleanup: true
-  api_key: GITHUB_OAUTH_TOKEN
+  api_key: $GITHUB_OAUTH_TOKEN
   file_glob: true
   file:
     - target/*.jar
