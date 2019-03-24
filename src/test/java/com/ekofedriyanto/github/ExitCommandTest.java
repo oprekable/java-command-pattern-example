@@ -77,4 +77,9 @@ public class ExitCommandTest {
 		exitCommand.printConfirmation();
 		assertEquals(ExitCommand.confirmationString + "\n", outContent.toString());
 	}
+
+	@Test
+	public void calculateTest() {
+		assertArrayEquals(new long[]{}, exitCommand.calculate(new int[]{}));
+	}
 }
