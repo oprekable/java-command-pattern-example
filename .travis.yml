@@ -15,7 +15,7 @@ script:
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 before_deploy:
-  - export TRAVIS_TAG="$(echo "${TRAVIS_TAG}" | awk -F'-' '{print $2}')${$TRAVIS_BUILD_NUMBER}"
+  - export TRAVIS_TAG="${TRAVIS_TAG}-${$TRAVIS_BUILD_NUMBER}"
   - echo "$TRAVIS_TAG" "$TRAVIS_COMMIT"
   - git config --local user.name "$USER_NAME"
   - git config --local user.email "$USER_EMAIL"
