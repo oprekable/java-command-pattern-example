@@ -2,3 +2,16 @@
 [![codecov](https://codecov.io/gh/oprekable/java-command-pattern-example/branch/master/graph/badge.svg)](https://codecov.io/gh/oprekable/java-command-pattern-example)
 
 
+## How to test
+
+Download last jar file from :
+```
+https://github.com/oprekable/java-command-pattern-example/releases/latest
+```
+Required java 1.8 or more to run
+
+```
+java -jar java-command-pattern-example-10.jar
+```
+
+[![demo](https://asciinema.org/a/kK78TT5TiYZLQwDdByTxl9SXF.svg)](https://asciinema.org/a/kK78TT5TiYZLQwDdByTxl9SXF?autoplay=1)
