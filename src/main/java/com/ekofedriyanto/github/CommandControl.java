@@ -4,6 +4,7 @@ import com.ekofedriyanto.github.command.Command;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class CommandControl {
@@ -29,17 +30,15 @@ public class CommandControl {
 	}
 
 	public void executeCommand(String menu) {
-		Stream<Command> streamCommands = commands.stream()
+		Supplier<Stream<Command>> streamCommands = () -> commands.stream()
 				.filter(c -> c.canHandle(menu));
 
-		if (streamCommands.count() == 0) {
+		if (streamCommands.get().count() == 0) {
 			System.out.println(separatorString);
 			System.out.println(menuNotRegisteredString);
 			System.out.println(separatorString);
 		} else {
-			commands.stream()
-					.filter(c -> c.canHandle(menu))
-					.forEach(c -> {
+			streamCommands.get().forEach(c -> {
 						c.printConfirmation();
 						String input = scanner.nextLine();
 						try {
