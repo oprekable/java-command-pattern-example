@@ -7,6 +7,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.util.Arrays;
+
 public class InputOutputUtilityTest {
 
 	private String src;
@@ -21,6 +23,11 @@ public class InputOutputUtilityTest {
 		src = "31231,asdasd,   f1231, ^**&^*,000";
 		delimiter = ",";
 		expectedString = "31231,asdasd,f1231,,000";
+	}
+
+	@Test
+	public void constructorTest() {
+		Assert.assertTrue(new InputOutputUtility() instanceof InputOutputUtility);
 	}
 
 	@Test
@@ -100,4 +107,14 @@ public class InputOutputUtilityTest {
 		expectedEx.expect(NumberFormatException.class);
 		InputOutputUtility.stringToIntArray("1,ass,3", delimiter);
 	}
+
+	@Test
+	public void stringToIntArrayNullDelimiterTest() {
+		int[] result = InputOutputUtility.stringToIntArray("11234", null);
+		Assert.assertArrayEquals( new int[]{1,1,2,3,4}, result);
+	}
+
+
+
+
 }

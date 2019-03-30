@@ -9,11 +9,11 @@ public class PrimeNumberCommand implements Command {
 	final private String[] commandString = new String[]{"p","P"};
 	final private String inputDelimiter = ",";
 
-	public static String menuString = "to find first N prime number, and print the result";
-	public static String menuStringFormat = "* Enter \"%s\" : %s";
-	public static String commandStringJoinDelimiter = "\" or \"";
-	public static String confirmationString = "Please enter a number (example : 4) : ";
-	public static String resultStringFormat = "Result of first \"%s\" prime number : %s";
+	final public static String menuString = "to find first N prime number, and print the result";
+	final public static String menuStringFormat = "* Enter \"%s\" : %s";
+	final public static String commandStringJoinDelimiter = "\" or \"";
+	final public static String confirmationString = "Please enter a number (example : 4) : ";
+	final public static String resultStringFormat = "Result of first \"%s\" prime number : %s";
 
 	public PrimeNumberCommand() {
 	}

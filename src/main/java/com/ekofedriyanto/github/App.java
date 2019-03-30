@@ -2,8 +2,10 @@ package com.ekofedriyanto.github;
 
 import com.ekofedriyanto.github.command.*;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Hello world!
@@ -11,7 +13,8 @@ import java.util.List;
  */
 public class App 
 {
-    public static void main( String[] args )
+    @SuppressWarnings("InfiniteLoopStatement")
+	public static void main(String[] args )
     {
 		Command sumCommand = new SumCommand();
 		Command multiplyCommand = new MultiplyCommand();
@@ -28,6 +31,13 @@ public class App
 
 		CommandControl commandControl = new CommandControl(commands);
 
-        commandControl.printMenu();
+		final InputStream in = System.in;
+		final Scanner scanner = new Scanner(in);
+
+		while (true) {
+			commandControl.printMenu();
+			String menuString = scanner.nextLine();
+			commandControl.executeCommand(menuString, in);
+		}
     }
 }

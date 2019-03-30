@@ -82,4 +82,10 @@ public class ExitCommandTest {
 	public void calculateTest() {
 		assertArrayEquals(new long[]{}, exitCommand.calculate(new int[]{}));
 	}
+
+	@Test
+	public void printResultTest() {
+		exitCommand.printResult(new int[]{}, new long[]{});
+		assertEquals("Bye!!!\n", outContent.toString());
+	}
 }

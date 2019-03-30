@@ -1,35 +1,68 @@
 package com.ekofedriyanto.github;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
-import java.util.Arrays;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertFalse( false );
-    }
+
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+	private final PrintStream originalOut = System.out;
+	private final PrintStream originalErr = System.err;
+
+	@Before
+	public void setUpStreams() {
+		System.setOut(new PrintStream(outContent));
+		System.setErr(new PrintStream(errContent));
+	}
+
+	@After
+	public void restoreStreams() {
+		System.setOut(originalOut);
+		System.setErr(originalErr);
+	}
+
+	@Rule
+	public ExpectedSystemExit expectedEx = ExpectedSystemExit.none();
 
 	@Test
-	public void nameTest() {
+	public void mainTest() {
+		expectedEx.expectSystemExit();
+		expectedEx.expectSystemExitWithStatus(0);
 
-		int[] xx = Stream.iterate(new int[]{0, 1}, i -> new int[]{i[1], i[0] + i[1]}).limit(4).mapToInt(s -> s[0]).toArray();
+		String expectedPrint = "* Enter \"s\" or \"S\" : to sum X & Y & ..., and print the result\n" +
+				"* Enter \"m\" or \"M\" : to multiply X & Y & ..., and print the result\n" +
+				"* Enter \"p\" or \"P\" : to find first N prime number, and print the result\n" +
+				"* Enter \"f\" or \"F\" : to find first N \"Fibonacci Sequence\", and print the result\n" +
+				"* Enter \"x\" or \"X\" : to quit!!\n" +
+				"==========================================\n" +
+				"Select menu : \n" +
+				"Killing the application !!\n" +
+				"==========================================\n" +
+				"==========================================\n" +
+				"Failed to execute : No line found\n" +
+				"==========================================\n";
 
-		System.out.println(Arrays.toString(xx));
+		ByteArrayInputStream in = new ByteArrayInputStream("x".getBytes());
+		System.setIn(in);
 
-		assertFalse( false );
+		App.main(new String[]{});
+
+		System.setIn(System.in);
+
+		assertEquals(expectedPrint, outContent.toString());
 	}
 }

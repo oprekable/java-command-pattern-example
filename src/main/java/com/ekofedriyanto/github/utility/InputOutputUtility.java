@@ -2,12 +2,14 @@ package com.ekofedriyanto.github.utility;
 
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class InputOutputUtility {
 
+	public InputOutputUtility() {
+	}
+
 	public static String trimString(String src, String delimiter) {
-		final String replaceRegex = (!Objects.isNull(delimiter)) ? "[^a-zA-Z0-9\\-" + delimiter + "]" : "[^a-zA-Z0-9]";
+		final String replaceRegex = (!Objects.isNull(delimiter)) ? "[^a-zA-Z0-9\\-" + delimiter + "]" : "[^a-zA-Z0-9\\-]";
 		return (!Objects.isNull(src)) ? src.replaceAll(replaceRegex, "") : "";
 	}
 

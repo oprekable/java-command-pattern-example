@@ -5,10 +5,10 @@ import java.util.Arrays;
 public class ExitCommand implements Command {
 	final private String[] commandString = new String[]{"x","X"};
 
-	public static String menuString = "to quit!!";
-	public static String menuStringFormat = "* Enter \"%s\" : %s";
-	public static String commandStringJoinDelimiter = "\" or \"";
-	public static String confirmationString = "Killing the application !!";
+	final public static String menuString = "to quit!!";
+	final public static String menuStringFormat = "* Enter \"%s\" : %s";
+	final public static String commandStringJoinDelimiter = "\" or \"";
+	final public static String confirmationString = "Killing the application !!";
 
 
 	public ExitCommand() {
@@ -16,6 +16,7 @@ public class ExitCommand implements Command {
 
 	@Override
 	public void execute(String input) {
+		printResult(new int[]{}, new long[]{});
 		System.exit(0);
 	}
 
@@ -41,6 +42,6 @@ public class ExitCommand implements Command {
 
 	@Override
 	public void printResult(int[] inputInt, long[] calculate) {
-
+		System.out.println("Bye!!!");
 	}
 }
