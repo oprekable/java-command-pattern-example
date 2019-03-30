@@ -74,6 +74,19 @@ public class CommandControlTest {
 	}
 
 	@Test
+	public void executeUnknownMenuTest() {
+		final ByteArrayInputStream in = new ByteArrayInputStream("\n".getBytes());
+
+		commandControl.executeCommand("a", in);
+
+		String expectedPrint = "==========================================\n" +
+				"Menu selection not registered\n" +
+				"==========================================\n";
+
+		assertEquals(expectedPrint, outContent.toString());
+	}
+
+	@Test
 	public void executeCommandExitTest() {
 		expectedEx.expectSystemExit();
 		expectedEx.expectSystemExitWithStatus(0);

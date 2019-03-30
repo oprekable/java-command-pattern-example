@@ -1,9 +1,7 @@
 package com.ekofedriyanto.github;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import com.ekofedriyanto.github.utility.InputOutputUtility;
+import org.junit.*;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 import java.io.ByteArrayInputStream;
@@ -37,6 +35,13 @@ public class AppTest
 
 	@Rule
 	public ExpectedSystemExit expectedEx = ExpectedSystemExit.none();
+
+
+
+	@Test
+	public void constructorTest() {
+		Assert.assertTrue(new App() instanceof App);
+	}
 
 	@Test
 	public void mainTest() {
