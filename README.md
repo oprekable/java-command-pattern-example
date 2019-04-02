@@ -11,7 +11,7 @@ https://github.com/oprekable/java-command-pattern-example/releases/latest
 Required java 1.8 or more to run
 
 ```
-java -jar java-command-pattern-example-10.jar
+java -jar java-command-pattern-example-13.jar
 ```
 
-[![demo](https://asciinema.org/a/kK78TT5TiYZLQwDdByTxl9SXF.svg)](https://asciinema.org/a/kK78TT5TiYZLQwDdByTxl9SXF?autoplay=1)
+[![demo](https://asciinema.org/a/kK78TT5TiYZLQwDdByTxl9SXF.svg)](https://asciinema.org/a/x1hw6PznBOskkGaCY8y5Ok0Uu?autoplay=1)
